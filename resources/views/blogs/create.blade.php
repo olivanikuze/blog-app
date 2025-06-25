@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<x-app-layout>
 
 @section('content')
     <h1 class="text-2xl font-bold mb-4">➕ Create blog</h1>
@@ -23,3 +23,4 @@
         </button>
     </form>
 @endsection
+</x-app-layout>
