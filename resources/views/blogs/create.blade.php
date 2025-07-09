@@ -1,6 +1,5 @@
 <x-app-layout>
 
-@section('content')
     <h1 class="text-2xl font-bold mb-4">➕ Create blog</h1>
   {{-- enctype: helps me  to insert pic  --}}
     <form method="POST" action="{{ route('blogs.store') }}" enctype="multipart/form-data" class="bg-white shadow p-6 rounded">
@@ -22,5 +21,4 @@
             Submit
         </button>
     </form>
-@endsection
 </x-app-layout>

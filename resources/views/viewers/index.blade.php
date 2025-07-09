@@ -1,15 +1,23 @@
-<x-app-layout>
-@section('content')
-    <h1 class="text-3xl font-bold mb-4">📰 Latest Posts</h1>
+<x-guest-layout>
+    <div>
+        <h1 class="text-3xl font-bold mb-8 text-blue-700">📰 POSTS</h1>
 
-    @foreach($readers as $reader)
-        <div class="bg-white shadow p-4 rounded mb-4">
-            <h2 class="text-xl font-semibold">{{ $reader->title }}</h2>
-            <p class="text-gray-700 mt-2">{{ Str::limit($reader->content, 150) }}</p>
-            <a href="{{ route('viewers.show', $reader->id) }}" class="text-blue-500 mt-2 inline-block">Read More →</a>
-        </div>
-    @endforeach
+        @foreach($readers as $reader)
+            <div class="bg-red shadow p-4 rounded mb-4  flex flex-col md:flex-row space-y-4 md:space-y-1 ">
+                
+                {{-- Show Image if it exists --}}
+                @if ($reader->image)
+                    <img src="{{ asset('storage/' . $reader->image) }}" alt="Post Image" class="rounded-lg w-full  md:w-1/3  h-200 object-cover mb-4 space-y-4">
+                @endif
 
-    {{ $readers->links() }}
-@endsection
-</x-app-layout>
+         <div class="flex flex-col ">
+                    <h2 class="text-xl font-semibold text-green-700">{{ $reader->title }}</h2>
+                    <p class="text-gray-700">{{ Str::limit($reader->content, 100) }}</p>
+                    <a href="{{ route('viewers.show', $reader->id) }}" class="text-blue-500">Read More →</a>
+                </div>
+
+               
+            </div>
+        @endforeach
+    </div>
+</x-guest-layout>

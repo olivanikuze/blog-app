@@ -23,5 +23,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
  
-Route::get('/', [ReaderController::class, 'index'])->name('viewers.index');
+Route::get('/viewers', [ReaderController::class, 'index'])->name('viewers.index');
 Route::get('/show/{id}', [ReaderController::class, 'show'])->name('viewers.show');
+Route::view('/about','viewers.about');
+Route::view('/contact','viewers.contact');
