@@ -3,16 +3,23 @@
 namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 
 {
+//       public function index()
+// {
+//     $users = User::all();
+//     dd($users); 
+// }
+
     public function index(){
     $blog1 = Post::all();
     return view('blogs.index', compact('blog1'));
     }
-
+ 
     public function create(){
         return view('blogs.create');
     } 
@@ -46,7 +53,7 @@ class PostController extends Controller
     $request->validate([
         'title' => 'required',
         'content' => 'required',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
     ]);
 
     $blog = Post::findOrFail($id);
@@ -74,6 +81,14 @@ public function destroy($id)
     $blog->delete();
 
     return redirect()->route('blogs.index')->with('success', 'Blog deleted!');
+}
+
+public function showUserPosts($id)
+{
+    $user = User::find($id);
+    $posts = $user->posts;
+
+    return view('index', compact('user', 'posts'));
 }
 
 }

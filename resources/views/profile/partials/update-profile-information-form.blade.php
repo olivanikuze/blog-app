@@ -47,6 +47,16 @@
             @endif
         </div>
 
+              <div>
+            <x-input-label for="role" :value="__('Select Role')" />
+            <select name="role" id="role" class="block mt-1 w-full dark:bg-gray-800 dark:text-white" required>
+                <option value="admin" {{ old('role', $user->role) === 'admin' ? 'selected' : '' }}>Admin</option>
+                <option value="editor" {{ old('role', $user->role) === 'editor' ? 'selected' : '' }}>Editor</option>
+                <option value="creator" {{ old('role', $user->role) === 'creator' ? 'selected' : '' }}>Creator</option>
+            </select>
+            <x-input-error class="mt-2" :messages="$errors->get('role')" />
+        </div>    
+        
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
