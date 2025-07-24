@@ -13,9 +13,13 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Styles / Scripts -->
+        
+
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="min-h-screen bg-gray-100 dark:bg-gray-100">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -32,5 +36,8 @@
                 {{ $slot }}
             </main>
         </div>
+        <footer class="bg-gray-200 py-6 text-center text-gray-600">
+    &copy; 2025 MyBlog. All rights reserved.
+  </footer>
     </body>
 </html>
