@@ -23,6 +23,11 @@
                     <div class="md:w-1/2 flex flex-col justify-between space-y-4">
                         <div>
                             <h2 class="text-2xl font-semibold text-gray-800 mb-2">{{ $post->title }}</h2>
+                            {{-- <h1>{{ $user->name }}'s Posts</h1>
+                            @foreach($user->posts as $post) 
+                            <p>{{ $post->title }}</p>
+                            @endforeach --}}
+
                             {{-- <h1>Posts by {{ $user->name }}</h1> --}}
                             <p class="text-gray-700">{{ Str::limit($post->content, 300) }}</p>
                         </div>

@@ -85,10 +85,10 @@ public function destroy($id)
 
 public function showUserPosts($id)
 {
-    $user = User::find($id);
+    $user = User::findOrfail($id);
     $posts = $user->posts;
 
-    return view('index', compact('user', 'posts'));
+    return view('blogs.index', compact('user', 'posts'));
 }
 
 }
